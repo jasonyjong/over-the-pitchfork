@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		421FDA401A7AEC600011A69F /* PitchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421FDA3F1A7AEC600011A69F /* PitchItem.swift */; };
+		421FDA421A7AEC700011A69F /* PitchItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421FDA411A7AEC700011A69F /* PitchItemCell.swift */; };
 		F6B358E41A7AD66E00E2CCFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B358E31A7AD66E00E2CCFE /* AppDelegate.swift */; };
 		F6B358E61A7AD66E00E2CCFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B358E51A7AD66E00E2CCFE /* ViewController.swift */; };
 		F6B358EB1A7AD66E00E2CCFE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6B358EA1A7AD66E00E2CCFE /* Images.xcassets */; };
@@ -30,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		421FDA3F1A7AEC600011A69F /* PitchItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchItem.swift; sourceTree = "<group>"; };
+		421FDA411A7AEC700011A69F /* PitchItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchItemCell.swift; sourceTree = "<group>"; };
 		F6B358DE1A7AD66E00E2CCFE /* pitchfork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pitchfork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6B358E21A7AD66E00E2CCFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6B358E31A7AD66E00E2CCFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 				F6B3590D1A7ADC5E00E2CCFE /* ReceiverFragmentViewController.swift */,
 				F6B359081A7ADBFC00E2CCFE /* PagerViewController.swift */,
 				F6B358E51A7AD66E00E2CCFE /* ViewController.swift */,
+				421FDA3F1A7AEC600011A69F /* PitchItem.swift */,
+				421FDA411A7AEC700011A69F /* PitchItemCell.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -245,6 +251,8 @@
 				F6B358E61A7AD66E00E2CCFE /* ViewController.swift in Sources */,
 				F6B359111A7ADC5E00E2CCFE /* ReceiverFragmentViewController.swift in Sources */,
 				F6B3590E1A7ADC5E00E2CCFE /* FragmentViewController.swift in Sources */,
+				421FDA421A7AEC700011A69F /* PitchItemCell.swift in Sources */,
+				421FDA401A7AEC600011A69F /* PitchItem.swift in Sources */,
 				F6B358E41A7AD66E00E2CCFE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
