@@ -8,10 +8,12 @@
 
 import UIKit
 
-class PagerViewController : UIViewController, UIPageViewControllerDataSource {
+class ViewPagerViewController : UIViewController, UIPageViewControllerDataSource {
     
     var pageViewController: UIPageViewController?
-    var pages = [PTTFragmentViewController.self, ReceiverFragmentViewController.self] as Array<FragmentViewController.Type>
+    var pages:Array<FragmentViewController> = []
+    
+    var numPages:Int = 3;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +23,13 @@ class PagerViewController : UIViewController, UIPageViewControllerDataSource {
         
         pageViewController!.dataSource = self
         
-        var startingViewController = viewControllerAtIndex(0)
-        pageViewController!.setViewControllers([startingViewController!], direction: .Forward, animated:false, completion:nil)
+        for (var i = 0; i < numPages; i++) {
+            var fragmentVC = storyboard.instantiateViewControllerWithIdentifier("VideoFragmentViewController") as FragmentViewController?
+            fragmentVC!.setIndex(i);
+            pages.append(fragmentVC!);
+        }
+        var startingViewController = pages[0]
+        pageViewController!.setViewControllers([startingViewController], direction: .Forward, animated:false, completion:nil)
         addChildViewController(pageViewController!)
         addChildViewController(pageViewController!)
         view.addSubview(pageViewController!.view)
@@ -36,36 +43,18 @@ class PagerViewController : UIViewController, UIPageViewControllerDataSource {
     
     // Page View Controller Data Source
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-        let index = indexOfPageByClass(viewController)
-        if index == NSNotFound {
-            return nil
-        } else {
-            return viewControllerAtIndex(index - 1)
-        }
+        var fragmentVC:FragmentViewController = viewController as FragmentViewController
+        return viewControllerAtIndex(fragmentVC.index() - 1)
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-        let index = indexOfPageByClass(viewController)
-        if index == NSNotFound {
-            return nil
-        } else {
-            return viewControllerAtIndex(index + 1)
-        }
+        var fragmentVC:FragmentViewController = viewController as FragmentViewController
+        return viewControllerAtIndex(fragmentVC.index() + 1)
     }
-    
-    func indexOfPageByClass(viewController: UIViewController!) -> Int {
-        for (var i = 0; i < pages.count; i++) {
-            if viewController.isKindOfClass(pages[i]) {
-                return i
-            }
-        }
-    
-        return NSNotFound
-    }
-    
+
     func viewControllerAtIndex(index: Int) -> FragmentViewController? {
         if index < pages.count && index >= 0 {
-            return storyboard?.instantiateViewControllerWithIdentifier(pages[index].fragmentStoryboardId()) as FragmentViewController?
+            return pages[index]
         }
         
         return nil
