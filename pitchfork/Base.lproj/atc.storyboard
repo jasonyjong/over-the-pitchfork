@@ -45,10 +45,10 @@
             </objects>
             <point key="canvasLocation" x="-1149" y="291"/>
         </scene>
-        <!--PagerViewController-->
+        <!--ViewPagerViewController-->
         <scene sceneID="trn-BH-zSQ">
             <objects>
-                <viewController storyboardIdentifier="PagerViewController" title="PagerViewController" id="SU4-6B-E9T" customClass="PagerViewController" customModule="pitchfork" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewPagerViewController" title="ViewPagerViewController" id="SU4-6B-E9T" customClass="ViewPagerViewController" customModule="pitchfork" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q8x-zy-PxD"/>
                         <viewControllerLayoutGuide type="bottom" id="nf9-Hl-rsz"/>
@@ -71,10 +71,10 @@
             </objects>
             <point key="canvasLocation" x="235" y="291"/>
         </scene>
-        <!--Fragment View Controller-->
+        <!--Video Fragment View Controller-->
         <scene sceneID="5vR-9J-6Qi">
             <objects>
-                <viewController storyboardIdentifier="PTTFragmentViewController" id="iOB-ke-BGo" customClass="PTTFragmentViewController" customModule="pitchfork" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VideoFragmentViewController" id="iOB-ke-BGo" customClass="VideoFragmentViewController" customModule="pitchfork" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L9x-An-oxR"/>
                         <viewControllerLayoutGuide type="bottom" id="8iS-MZ-kt4"/>
@@ -83,91 +83,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ux-3R-WRf">
-                                <rect key="frame" x="214" y="389" width="172" height="95"/>
-                                <state key="normal" title="Press to Record">
-                                    <color key="titleColor" red="1" green="0.15057822849999999" blue="0.23353306460000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onTouchDownRecordButton:" destination="iOB-ke-BGo" eventType="touchDown" id="8rK-HG-aG2"/>
-                                    <action selector="onTouchUpRecordButton:" destination="iOB-ke-BGo" eventType="touchUpInside" id="ard-DQ-x2i"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vv2-hl-VVt">
-                                <rect key="frame" x="231" y="274" width="139" height="51"/>
-                                <state key="normal" title="Press to Play">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onTouchUpPlayButton:" destination="iOB-ke-BGo" eventType="touchUpInside" id="wXJ-A6-E6R"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2s-YW-Q5m">
-                                <rect key="frame" x="254" y="325" width="92" height="30"/>
-                                <state key="normal" title="Play Random">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onTouchUpRandomButton:" destination="iOB-ke-BGo" eventType="touchUpInside" id="cIN-9i-Lc1"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jTT-8A-f3U">
-                                <rect key="frame" x="214" y="389" width="172" height="95"/>
-                                <state key="normal" title="Press to Record">
-                                    <color key="titleColor" red="1" green="0.15057822849999999" blue="0.23353306460000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onTouchDownRecordButton:" destination="iOB-ke-BGo" eventType="touchDown" id="ln7-W8-7XN"/>
-                                    <action selector="onTouchUpRecordButton:" destination="iOB-ke-BGo" eventType="touchUpInside" id="h82-mr-8EE"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdf-lj-TWL">
+                                <rect key="frame" x="228" y="97" width="145" height="78"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="Vv2-hl-VVt" secondAttribute="centerY" id="3DB-8B-m5V"/>
-                            <constraint firstAttribute="centerX" secondItem="E2s-YW-Q5m" secondAttribute="centerX" id="BkM-kM-2Wm"/>
-                            <constraint firstAttribute="centerX" secondItem="5Ux-3R-WRf" secondAttribute="centerX" id="EeH-Fl-bC6"/>
-                            <constraint firstAttribute="centerX" secondItem="jTT-8A-f3U" secondAttribute="centerX" id="dpD-TA-d6d"/>
-                            <constraint firstAttribute="centerX" secondItem="Vv2-hl-VVt" secondAttribute="centerX" id="olo-Ty-nSS"/>
+                            <constraint firstAttribute="centerX" secondItem="jdf-lj-TWL" secondAttribute="centerX" id="mSP-Sn-H7Y"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="playButton" destination="Vv2-hl-VVt" id="60P-bd-Fh4"/>
-                        <outlet property="randomButton" destination="E2s-YW-Q5m" id="eAr-tc-9tF"/>
-                        <outlet property="recordingButton" destination="jTT-8A-f3U" id="eVB-qY-vPd"/>
+                        <outlet property="titleLabel" destination="jdf-lj-TWL" id="x6H-cX-98M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PqV-YQ-WR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-459" y="1022"/>
-        </scene>
-        <!--Receiver Fragment View Controller-->
-        <scene sceneID="VBz-dB-TT6">
-            <objects>
-                <viewController storyboardIdentifier="ReceiverFragmentViewController" id="cRV-Hb-s6v" customClass="ReceiverFragmentViewController" customModule="pitchfork" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="yQy-3a-Yv1"/>
-                        <viewControllerLayoutGuide type="bottom" id="iTe-S4-XPY"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="PpX-Kg-bFb">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="41d-oG-KOB">
-                                <rect key="frame" x="-42" y="-8" width="647" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                    </view>
-                    <connections>
-                        <outlet property="modalTableView" destination="41d-oG-KOB" id="iXH-e8-yq2"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AbK-hY-lTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="205" y="1022"/>
         </scene>
     </scenes>
 </document>

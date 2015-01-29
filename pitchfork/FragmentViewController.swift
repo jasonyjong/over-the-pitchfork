@@ -9,8 +9,15 @@
 import UIKit
 
 class FragmentViewController : UIViewController {
-
-    class func fragmentStoryboardId() -> String {
-        assert(false, "This method must be overriden by the subclass");
+    
+    var mIndex:Int = 0
+    
+    func setIndex(index:Int) {
+        self.mIndex = index
     }
+    
+    func index() -> Int {
+        return mIndex
+    }
+    
 }
