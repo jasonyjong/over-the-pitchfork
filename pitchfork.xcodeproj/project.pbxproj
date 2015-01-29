@@ -9,10 +9,14 @@
 /* Begin PBXBuildFile section */
 		F6B358E41A7AD66E00E2CCFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B358E31A7AD66E00E2CCFE /* AppDelegate.swift */; };
 		F6B358E61A7AD66E00E2CCFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B358E51A7AD66E00E2CCFE /* ViewController.swift */; };
-		F6B358E91A7AD66E00E2CCFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6B358E71A7AD66E00E2CCFE /* Main.storyboard */; };
 		F6B358EB1A7AD66E00E2CCFE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6B358EA1A7AD66E00E2CCFE /* Images.xcassets */; };
 		F6B358EE1A7AD66E00E2CCFE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6B358EC1A7AD66E00E2CCFE /* LaunchScreen.xib */; };
 		F6B358FA1A7AD66E00E2CCFE /* pitchforkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B358F91A7AD66E00E2CCFE /* pitchforkTests.swift */; };
+		F6B359051A7AD91200E2CCFE /* atc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6B359031A7AD91200E2CCFE /* atc.storyboard */; };
+		F6B359091A7ADBFC00E2CCFE /* PagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B359081A7ADBFC00E2CCFE /* PagerViewController.swift */; };
+		F6B3590E1A7ADC5E00E2CCFE /* FragmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B3590A1A7ADC5E00E2CCFE /* FragmentViewController.swift */; };
+		F6B359101A7ADC5E00E2CCFE /* PTTFragmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B3590C1A7ADC5E00E2CCFE /* PTTFragmentViewController.swift */; };
+		F6B359111A7ADC5E00E2CCFE /* ReceiverFragmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B3590D1A7ADC5E00E2CCFE /* ReceiverFragmentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,12 +34,16 @@
 		F6B358E21A7AD66E00E2CCFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6B358E31A7AD66E00E2CCFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6B358E51A7AD66E00E2CCFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F6B358E81A7AD66E00E2CCFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F6B358EA1A7AD66E00E2CCFE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F6B358ED1A7AD66E00E2CCFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		F6B358F31A7AD66E00E2CCFE /* pitchforkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pitchforkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6B358F81A7AD66E00E2CCFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6B358F91A7AD66E00E2CCFE /* pitchforkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pitchforkTests.swift; sourceTree = "<group>"; };
+		F6B359041A7AD91200E2CCFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/atc.storyboard; sourceTree = "<group>"; };
+		F6B359081A7ADBFC00E2CCFE /* PagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagerViewController.swift; sourceTree = "<group>"; };
+		F6B3590A1A7ADC5E00E2CCFE /* FragmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FragmentViewController.swift; sourceTree = "<group>"; };
+		F6B3590C1A7ADC5E00E2CCFE /* PTTFragmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PTTFragmentViewController.swift; sourceTree = "<group>"; };
+		F6B3590D1A7ADC5E00E2CCFE /* ReceiverFragmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiverFragmentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +85,9 @@
 		F6B358E01A7AD66E00E2CCFE /* pitchfork */ = {
 			isa = PBXGroup;
 			children = (
+				F6B359071A7AD94100E2CCFE /* controller */,
+				F6B359061A7AD93800E2CCFE /* storyboard */,
 				F6B358E31A7AD66E00E2CCFE /* AppDelegate.swift */,
-				F6B358E51A7AD66E00E2CCFE /* ViewController.swift */,
-				F6B358E71A7AD66E00E2CCFE /* Main.storyboard */,
 				F6B358EA1A7AD66E00E2CCFE /* Images.xcassets */,
 				F6B358EC1A7AD66E00E2CCFE /* LaunchScreen.xib */,
 				F6B358E11A7AD66E00E2CCFE /* Supporting Files */,
@@ -110,6 +118,26 @@
 				F6B358F81A7AD66E00E2CCFE /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F6B359061A7AD93800E2CCFE /* storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				F6B359031A7AD91200E2CCFE /* atc.storyboard */,
+			);
+			name = storyboard;
+			sourceTree = "<group>";
+		};
+		F6B359071A7AD94100E2CCFE /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				F6B3590A1A7ADC5E00E2CCFE /* FragmentViewController.swift */,
+				F6B3590C1A7ADC5E00E2CCFE /* PTTFragmentViewController.swift */,
+				F6B3590D1A7ADC5E00E2CCFE /* ReceiverFragmentViewController.swift */,
+				F6B359081A7ADBFC00E2CCFE /* PagerViewController.swift */,
+				F6B358E51A7AD66E00E2CCFE /* ViewController.swift */,
+			);
+			name = controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,7 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6B358E91A7AD66E00E2CCFE /* Main.storyboard in Resources */,
+				F6B359051A7AD91200E2CCFE /* atc.storyboard in Resources */,
 				F6B358EE1A7AD66E00E2CCFE /* LaunchScreen.xib in Resources */,
 				F6B358EB1A7AD66E00E2CCFE /* Images.xcassets in Resources */,
 			);
@@ -212,7 +240,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6B359091A7ADBFC00E2CCFE /* PagerViewController.swift in Sources */,
+				F6B359101A7ADC5E00E2CCFE /* PTTFragmentViewController.swift in Sources */,
 				F6B358E61A7AD66E00E2CCFE /* ViewController.swift in Sources */,
+				F6B359111A7ADC5E00E2CCFE /* ReceiverFragmentViewController.swift in Sources */,
+				F6B3590E1A7ADC5E00E2CCFE /* FragmentViewController.swift in Sources */,
 				F6B358E41A7AD66E00E2CCFE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,20 +268,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F6B358E71A7AD66E00E2CCFE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F6B358E81A7AD66E00E2CCFE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F6B358EC1A7AD66E00E2CCFE /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F6B358ED1A7AD66E00E2CCFE /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		F6B359031A7AD91200E2CCFE /* atc.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6B359041A7AD91200E2CCFE /* Base */,
+			);
+			name = atc.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -405,6 +437,7 @@
 				F6B358FF1A7AD66E00E2CCFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F6B359001A7AD66E00E2CCFE /* Build configuration list for PBXNativeTarget "pitchforkTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +446,7 @@
 				F6B359021A7AD66E00E2CCFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
