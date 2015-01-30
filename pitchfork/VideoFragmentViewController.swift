@@ -29,6 +29,8 @@ class VideoFragmentViewController : FragmentViewController, UITableViewDelegate,
             textField.text = ""
             textField.textColor = UIColor.blackColor() //optional
         }
+        
+        moviePlayer!.pause()
         textField.becomeFirstResponder()
     }
     
@@ -44,9 +46,11 @@ class VideoFragmentViewController : FragmentViewController, UITableViewDelegate,
             pitchVideo?.sortComments()
             commentsTableView.reloadData()
         }
-        textField.text = "Comment at " + timeFormatted(Int((playbackTime as NSString).floatValue))
+        textField.text = "Comment at " + StringUtils.timeFormatted(Int((playbackTime as NSString).floatValue))
         
         textField.textColor = UIColor.lightGrayColor()
+        
+        moviePlayer!.play()
         textField.resignFirstResponder()
         
     }
@@ -96,17 +100,9 @@ class VideoFragmentViewController : FragmentViewController, UITableViewDelegate,
         
         let playbackTime = interval.description
         if (commentTextField.text.rangeOfString("Comment at ") != nil) {
-            commentTextField.text = "Comment at " + timeFormatted(Int((playbackTime as NSString).floatValue))
+            commentTextField.text = "Comment at " + StringUtils.timeFormatted(Int((playbackTime as NSString).floatValue))
             commentTextField.textColor = UIColor.lightGrayColor() //optional
         }
-    }
-    
-    func timeFormatted(totalSeconds:Int) -> String {
-    
-        var seconds:Int = totalSeconds % 60;
-        var minutes:Int = (totalSeconds / 60) % 60;
-    
-        return NSString(format:"%02d:%02d", minutes, seconds);
     }
 
     override func didReceiveMemoryWarning() {

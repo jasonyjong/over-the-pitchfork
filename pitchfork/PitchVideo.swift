@@ -28,10 +28,10 @@ struct PitchVideo {
     }
     
     mutating func addComment(comment:PitchComment) {
-        comments.insert(comment, atIndex:0)
+        comments.append(comment)
     }
     
     mutating func sortComments() {
-        comments.sort { $0.timestamp > $1.timestamp }
+        comments.sort { $0.timestamp < $1.timestamp }
     }
 }
