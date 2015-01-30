@@ -9,14 +9,38 @@
 import UIKit
 import MediaPlayer
 
-class VideoFragmentViewController : FragmentViewController {
+class VideoFragmentViewController : FragmentViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var titleLabel: UILabel!
 
     var moviePlayer : MPMoviePlayerController?
     @IBOutlet weak var videoHoldingView: UIView!
     
+    @IBOutlet weak var commentsTableView: UITableView!
+    
     // Datatypes
     var pitchVideo : PitchVideo?
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let video = self.pitchVideo {
+            return video.comments.count
+        } else {
+            return 0
+        }
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = commentsTableView.dequeueReusableCellWithIdentifier("CommentCell") as CommentTableCell?
+        if (cell == nil) {
+            cell = CommentTableCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "CommentCell")
+        }
+        
+        cell!.commentItem = self.pitchVideo!.comments[indexPath.row]
+        return cell!
+    }
+
+    func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
+        return false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
