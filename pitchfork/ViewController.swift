@@ -13,13 +13,44 @@ private let kTableHeaderCutAway: CGFloat = 60.0
 
 class ViewController: UITableViewController, UIScrollViewDelegate {
 
+    @IBOutlet weak var segControl: UISegmentedControl!
+
     var headerView: UIView!
+    var browse = true
+
     var headerMaskLayer: CAShapeLayer!
-    
+
+    @IBAction func indexChanged(sender: UISegmentedControl) {
+        switch segControl.selectedSegmentIndex
+        {
+            case 0:
+                browse = true
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.tableView.reloadData()
+                })
+            case 1:
+                browse = false
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.tableView.reloadData()
+                })
+            default:
+                break
+        }
+    }
+    @IBOutlet weak var textLabel: UILabel!
+
     let items = [
         PitchItem(category: .Publication, summary: "Symbolia merges thrilling true stories with amazing illustration and comics."),
+
         PitchItem(category: .DataViz, summary: "Interactive way to visualize poll results from elections"),
-        PitchItem(category: .DigitalPlatform, summary: "Plympton brings fiction to busy people, make reading in short installments a seamless part of daily life." )
+        PitchItem(category: .DigitalPlatform, summary: "Plympton brings fiction to busy people, make reading in short installments a seamless part of daily life."),
+        PitchItem(category: .Networking, summary: "Meetup connects female journotrepreneurs with others with successful professionals in the industry." )
+    ]
+    
+    
+    let my_items = [
+        PitchItem(category: .Networking, summary: "PitchCoach helps female journalists with ideas become entrepeneurs with visions."),
+        PitchItem(category: .DataViz, summary: "Datawizard helps you take large csv files and distill them down to intuitive and easy-to-use diagrams"),
     ]
     
     func updateHeaderView() {
@@ -91,11 +122,21 @@ class ViewController: UITableViewController, UIScrollViewDelegate {
     // MARK: - UITableViewDataSource
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        if browse {
+            return items.count
+        } else {
+            return my_items.count
+        }
+        
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let item = items[indexPath.row]
+        var item: PitchItem
+        if browse {
+            item = items[indexPath.row]
+        } else {
+            item = my_items[indexPath.row]
+        }
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as PitchItemCell
         cell.pitchItem = item
         
