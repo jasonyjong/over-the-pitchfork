@@ -108,19 +108,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdf-lj-TWL">
-                                <rect key="frame" x="228" y="97" width="145" height="78"/>
+                                <rect key="frame" x="228" y="28" width="145" height="78"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jgv-ES-wxP">
+                                <rect key="frame" x="150" y="150" width="300" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Jgv-ES-wxP" secondAttribute="centerX" id="GhB-tT-D7W"/>
+                            <constraint firstAttribute="centerY" secondItem="Jgv-ES-wxP" secondAttribute="centerY" id="KWL-hm-Zwa"/>
                             <constraint firstAttribute="centerX" secondItem="jdf-lj-TWL" secondAttribute="centerX" id="mSP-Sn-H7Y"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="titleLabel" destination="jdf-lj-TWL" id="x6H-cX-98M"/>
+                        <outlet property="videoHoldingView" destination="Jgv-ES-wxP" id="E4a-BT-koM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PqV-YQ-WR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
