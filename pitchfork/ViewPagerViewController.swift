@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewPagerViewController : UIViewController, UIPageViewControllerDataSource {
+class ViewPagerViewController : UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     var pageViewController: UIPageViewController?
     var pages:Array<FragmentViewController> = []
@@ -23,6 +23,7 @@ class ViewPagerViewController : UIViewController, UIPageViewControllerDataSource
         pageViewController = storyboard.instantiateViewControllerWithIdentifier("PageViewController") as UIPageViewController?
         
         pageViewController!.dataSource = self
+        pageViewController!.delegate = self
         
         var videos:Array<PitchVideo> = pitchGroup!.pitchVideos
         for (var i = 0; i < videos.count; i++) {
@@ -43,6 +44,18 @@ class ViewPagerViewController : UIViewController, UIPageViewControllerDataSource
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func pageViewController(pageViewController: UIPageViewController,
+        didFinishAnimating finished: Bool,
+        previousViewControllers : [VideoFragmentViewController],
+        transitionCompleted completed: Bool) {
+        
+            if completed {
+                if let vc = previousViewControllers[0] as VideoFragmentViewController? {
+                    vc.stopTimer()
+                }
+            }
     }
     
     // Page View Controller Data Source
