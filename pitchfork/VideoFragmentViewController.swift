@@ -35,9 +35,9 @@ class VideoFragmentViewController : FragmentViewController {
         var url:NSURL? = NSURL(string: "http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v")
         moviePlayer = MPMoviePlayerController(contentURL: url)
         if let player = moviePlayer {
-            player.view.frame = videoHoldingView.bounds //self.view.bounds
+            player.view.frame = videoHoldingView.bounds
             player.prepareToPlay()
-            player.scalingMode = .AspectFill
+            player.scalingMode = .Fill
             videoHoldingView.addSubview(player.view)
         }
     }
