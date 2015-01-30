@@ -67,6 +67,9 @@ class ViewController: UITableViewController, UIScrollViewDelegate {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         
+        // allow clickable
+        tableView.allowsSelection = true
+        
         /*headerView = tableView.tableHeaderView
         tableView.tableHeaderView = nil
         tableView.addSubview(headerView)
@@ -110,12 +113,33 @@ class ViewController: UITableViewController, UIScrollViewDelegate {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         let item = items[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as PitchItemCell
         cell.pitchItem = item
         
         return cell
+    }
+    
+    // function called upon button click event
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath:NSIndexPath) -> NSIndexPath? {
+        let viewPagerVC = ViewPagerViewController()
+        viewPagerVC.pitchGroup = getDummyPitchGroup()
+        self.presentViewController(viewPagerVC, animated: true, completion: nil)
+        return nil
+    }
+    
+    // TODO(jyjong): Enter dummy data here
+    func getDummyPitchGroup() -> PitchGroup {
+        var pitchGroup:PitchGroup = PitchGroup(category:"Category", description:"This stuff is legit")
+        
+        for (var i = 0; i < 3; i++) {
+            var pitchVideo:PitchVideo = PitchVideo(title: "Video " + String(i), category: "Category", url:"http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v")
+            pitchVideo.addComment("This is a comment")
+            pitchVideo.addComment("This is another comment")
+            pitchGroup.addPitchVideo(pitchVideo)
+        }
+        
+        return pitchGroup
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
