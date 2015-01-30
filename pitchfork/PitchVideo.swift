@@ -9,16 +9,18 @@
 import Foundation
 
 struct PitchVideo {
-    let title: String
+    var title: String
+    var category: String
     let url: String
     var comments:[String]
     
     //todo
-    let upvotes:Int?
-    let downvotes:Int?
+    var upvotes:Int?
+    var downvotes:Int?
     
-    init(title:String, url:String) {
+    init(title:String, category:String, url:String) {
         self.title = title
+        self.category = category
         self.url = url
         self.comments = []
     }
