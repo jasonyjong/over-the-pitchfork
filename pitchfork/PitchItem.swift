@@ -14,6 +14,7 @@ struct PitchItem {
         case Publication
         case DataViz
         case DigitalPlatform
+        case Networking
         
         func toString() -> String {
             switch self {
@@ -23,6 +24,8 @@ struct PitchItem {
                 return "Data Visualization"
             case .DigitalPlatform:
                 return "Digital Platform"
+            case .Networking:
+                return "Networking"
             }
         }
         
@@ -34,9 +37,9 @@ struct PitchItem {
                 return UIColor(red: 0.114, green: 0.639, blue: 0.984, alpha: 1)
             case .DigitalPlatform:
                 return UIColor(red: 0.322, green: 0.459, blue: 0.984, alpha: 1)
-            /*case .x:
+            case .Networking:
                 return UIColor(red: 0.502, green: 0.290, blue: 0.984, alpha: 1)
-            case .y:
+            /*case .y:
                 return UIColor(red: 0.988, green: 0.271, blue: 0.282, alpha: 1)
             case .z:
                 return UIColor(red: 0.620, green: 0.776, blue: 0.153, alpha: 1)*/
