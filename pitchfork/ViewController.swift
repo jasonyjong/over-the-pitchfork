@@ -13,11 +13,29 @@ private let kTableHeaderCutAway: CGFloat = 60.0
 
 class ViewController: UITableViewController, UIScrollViewDelegate {
 
+    @IBOutlet weak var segControl: UISegmentedControl!
+
     var headerView: UIView!
+    var browse = true
+
     var headerMaskLayer: CAShapeLayer!
-    
+
+    @IBAction func indexChanged(sender: UISegmentedControl) {
+        switch segControl.selectedSegmentIndex
+        {
+            case 0:
+                browse = true
+            case 1:
+                browse = false
+            default:
+                break
+        }
+    }
+    @IBOutlet weak var textLabel: UILabel!
+
     let items = [
         PitchItem(category: .Publication, summary: "Symbolia merges thrilling true stories with amazing illustration and comics."),
+
         PitchItem(category: .DataViz, summary: "Interactive way to visualize poll results from elections"),
         PitchItem(category: .DigitalPlatform, summary: "Plympton brings fiction to busy people, make reading in short installments a seamless part of daily life." )
     ]

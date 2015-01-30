@@ -13,13 +13,17 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="24" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        <segmentedControl key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="NAX-lU-vyh">
-                            <rect key="frame" x="-61" y="-14" width="600" height="29"/>
+                        <segmentedControl key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="NAX-lU-vyh">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
-                                <segment title="First"/>
-                                <segment title="Second"/>
+                                <segment title="Browse"/>
+                                <segment title="My Pitches"/>
                             </segments>
+                            <color key="tintColor" white="0.37762129934210531" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="indexChanged:" destination="HcR-TG-P32" eventType="valueChanged" id="29c-ch-bym"/>
+                            </connections>
                         </segmentedControl>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="ijI-rg-iuc" customClass="PitchItemCell" customModule="pitchfork" customModuleProvider="target">
@@ -72,6 +76,9 @@
                             <outlet property="delegate" destination="HcR-TG-P32" id="z7F-ey-C0A"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="segControl" destination="NAX-lU-vyh" id="hDM-hg-GJQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JhQ-FU-nhP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
