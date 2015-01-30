@@ -69,6 +69,10 @@ class VideoFragmentViewController : FragmentViewController, UITableViewDelegate,
         }
         
         cell!.commentItem = self.pitchVideo!.comments[indexPath.row]
+        
+        var bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor(red:0.114, green:0.639, blue: 0.984, alpha:0.5)
+        cell?.selectedBackgroundView = bgColorView
         return cell!
     }
 
@@ -92,10 +96,29 @@ class VideoFragmentViewController : FragmentViewController, UITableViewDelegate,
         var interval:NSTimeInterval = moviePlayer!.currentPlaybackTime;
         
         let playbackTime = interval.description
+        let timestamp:Int = Int((playbackTime as NSString).floatValue)
         if (commentTextField.text.rangeOfString("Comment at ") != nil) {
-            commentTextField.text = "Comment at " + StringUtils.timeFormatted(Int((playbackTime as NSString).floatValue))
+            commentTextField.text = "Comment at " + StringUtils.timeFormatted(timestamp)
             commentTextField.textColor = UIColor.lightGrayColor() //optional
         }
+        
+        // scroll to relevant position for tableView
+        let index:Int = getMostRelevantComment(timestamp)
+        let indexPath = NSIndexPath(forRow:index, inSection: 0)
+        commentsTableView!.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: true)
+        commentsTableView!.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: .Top)
+    }
+    
+    func getMostRelevantComment(currentTimestamp:Int) -> Int {
+        var i:Int = 0
+        for comment:PitchComment in pitchVideo!.comments {
+            if currentTimestamp <= comment.timestamp {
+                return i
+            }
+            i++
+        }
+        
+        return pitchVideo!.comments.count - 1
     }
 
     override func didReceiveMemoryWarning() {
