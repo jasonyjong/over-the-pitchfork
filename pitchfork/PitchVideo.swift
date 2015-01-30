@@ -13,7 +13,7 @@ struct PitchVideo {
     var category: String
     var description: String
     let url: String
-    var comments:[String]
+    var comments:[PitchComment]
     
     //todo
     var upvotes:Int?
@@ -27,7 +27,11 @@ struct PitchVideo {
         self.comments = []
     }
     
-    mutating func addComment(comment:String) {
-        comments.append(comment)
+    mutating func addComment(comment:PitchComment) {
+        comments.insert(comment, atIndex:0)
+    }
+    
+    mutating func sortComments() {
+        comments.sort { $0.timestamp > $1.timestamp }
     }
 }

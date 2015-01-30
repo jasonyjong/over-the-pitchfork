@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Jason YeeHarn Jong. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import MediaPlayer
 
@@ -23,7 +24,6 @@ class VideoFragmentViewController : FragmentViewController, UITableViewDelegate,
     @IBOutlet weak var commentTextField: UITextField!
     
     func textFieldDidBeginEditing(textField:UITextField) {
-        println("JAJA")
         if (textField.text.rangeOfString("Comment at ") != nil) {
             textField.text = ""
             textField.textColor = UIColor.blackColor() //optional
@@ -32,15 +32,19 @@ class VideoFragmentViewController : FragmentViewController, UITableViewDelegate,
     }
     
     @IBAction func textFieldDiDEndOnExit(sender: AnyObject) {
-        println("Done")
         var textField:UITextField = sender as UITextField
+        
+        var interval:NSTimeInterval = moviePlayer!.currentPlaybackTime;
+        let playbackTime = interval.description
+        
         if (countElements(textField.text) != 0) {
             // submit code
-            pitchVideo?.addComment(textField.text)
+            pitchVideo?.addComment(PitchComment(comment:textField.text, timestamp:Int((playbackTime as NSString).floatValue)))
+            pitchVideo?.sortComments()
             commentsTableView.reloadData()
         }
+        textField.text = "Comment at " + timeFormatted(Int((playbackTime as NSString).floatValue))
         
-        textField.text = "Comment at "
         textField.textColor = UIColor.lightGrayColor()
         textField.resignFirstResponder()
         
@@ -71,7 +75,7 @@ class VideoFragmentViewController : FragmentViewController, UITableViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         self.commentTextField.delegate = self
-        self.commentTextField.text = "Comment at "
+        self.commentTextField.text = "Comment at 00:00"
         self.commentTextField.textColor = UIColor.lightGrayColor()
         titleLabel.text = pitchVideo!.title
         
@@ -81,6 +85,26 @@ class VideoFragmentViewController : FragmentViewController, UITableViewDelegate,
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         playVideo()
+        
+        var updateVideoTime = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("updateVideoTime"), userInfo: nil, repeats: true)
+    }
+    
+    func updateVideoTime() {
+        var interval:NSTimeInterval = moviePlayer!.currentPlaybackTime;
+        
+        let playbackTime = interval.description
+        if (commentTextField.text.rangeOfString("Comment at ") != nil) {
+            commentTextField.text = "Comment at " + timeFormatted(Int((playbackTime as NSString).floatValue))
+            commentTextField.textColor = UIColor.lightGrayColor() //optional
+        }
+    }
+    
+    func timeFormatted(totalSeconds:Int) -> String {
+    
+        var seconds:Int = totalSeconds % 60;
+        var minutes:Int = (totalSeconds / 60) % 60;
+    
+        return NSString(format:"%02d:%02d", minutes, seconds);
     }
 
     override func didReceiveMemoryWarning() {
