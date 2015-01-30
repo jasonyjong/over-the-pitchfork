@@ -133,7 +133,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="O67-7T-JR3">
-                                <rect key="frame" x="140" y="255" width="320" height="337"/>
+                                <rect key="frame" x="140" y="319" width="320" height="273"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" id="yj0-FA-HyK" customClass="CommentTableCell" customModule="pitchfork" customModuleProvider="target">
@@ -160,14 +160,24 @@
                                     <outlet property="delegate" destination="iOB-ke-BGo" id="Hc9-KN-McP"/>
                                 </connections>
                             </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="boY-g1-cT5">
+                                <rect key="frame" x="140" y="281" width="320" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldDiDEndOnExit:" destination="iOB-ke-BGo" eventType="editingDidEndOnExit" id="ukf-0j-GYa"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="Jgv-ES-wxP" secondAttribute="centerX" id="GhB-tT-D7W"/>
                             <constraint firstAttribute="centerX" secondItem="O67-7T-JR3" secondAttribute="centerX" id="kJk-s9-IIz"/>
+                            <constraint firstAttribute="centerX" secondItem="boY-g1-cT5" secondAttribute="centerX" id="uAW-PY-1W3"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="commentTextField" destination="boY-g1-cT5" id="eVU-f9-hcK"/>
                         <outlet property="commentsTableView" destination="O67-7T-JR3" id="F0S-9c-94T"/>
                         <outlet property="titleLabel" destination="jdf-lj-TWL" id="x6H-cX-98M"/>
                         <outlet property="videoHoldingView" destination="Jgv-ES-wxP" id="E4a-BT-koM"/>
