@@ -13,10 +13,8 @@ class ViewPagerViewController : UIViewController, UIPageViewControllerDataSource
     var pageViewController: UIPageViewController?
     var pages:Array<FragmentViewController> = []
     
-    var numPages:Int = 3;
-    
-    // TODO(jyjong): Change type
-    var dataFromMenu : String?
+    // Datatypes
+    var pitchGroup:PitchGroup?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +24,12 @@ class ViewPagerViewController : UIViewController, UIPageViewControllerDataSource
         
         pageViewController!.dataSource = self
         
-        for (var i = 0; i < numPages; i++) {
+        var videos:Array<PitchVideo> = pitchGroup!.pitchVideos
+        for (var i = 0; i < videos.count; i++) {
             var fragmentVC = storyboard.instantiateViewControllerWithIdentifier("VideoFragmentViewController") as VideoFragmentViewController?
             fragmentVC!.setIndex(i);
             
-            // TODO(jyjong): Pass in relevant part of data
-            fragmentVC!.dataFromVP = dataFromMenu
+            fragmentVC!.pitchVideo = videos[i]
             pages.append(fragmentVC!);
         }
         var startingViewController = pages[0]

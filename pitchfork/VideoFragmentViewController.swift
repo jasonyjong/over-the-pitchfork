@@ -15,12 +15,12 @@ class VideoFragmentViewController : FragmentViewController {
     var moviePlayer : MPMoviePlayerController?
     @IBOutlet weak var videoHoldingView: UIView!
     
-    // TODO(jyjong): Change type
-    var dataFromVP : String?
+    // Datatypes
+    var pitchVideo : PitchVideo?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.text = "Page " + String(index()) + " " + dataFromVP!
+        titleLabel.text = pitchVideo!.title
         
         playVideo()
     }
@@ -31,14 +31,15 @@ class VideoFragmentViewController : FragmentViewController {
     }
     
     func playVideo() {
-        // TODO(jyjong): Remove dummy link
-        var url:NSURL? = NSURL(string: "http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v")
-        moviePlayer = MPMoviePlayerController(contentURL: url)
-        if let player = moviePlayer {
-            player.view.frame = videoHoldingView.bounds
-            player.prepareToPlay()
-            player.scalingMode = .Fill
-            videoHoldingView.addSubview(player.view)
+        if let video = pitchVideo {
+            var url:NSURL? = NSURL(string: video.url)
+            moviePlayer = MPMoviePlayerController(contentURL: url)
+            if let player = moviePlayer {
+                player.view.frame = videoHoldingView.bounds
+                player.prepareToPlay()
+                player.scalingMode = .Fill
+                videoHoldingView.addSubview(player.view)
+            }
         }
     }
     
