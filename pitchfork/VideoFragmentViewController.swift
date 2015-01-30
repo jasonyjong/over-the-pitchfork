@@ -37,7 +37,7 @@ class VideoFragmentViewController : FragmentViewController {
             if let player = moviePlayer {
                 player.view.frame = videoHoldingView.bounds
                 player.prepareToPlay()
-                player.scalingMode = .Fill
+                player.scalingMode = .AspectFit
                 videoHoldingView.addSubview(player.view)
             }
         }
