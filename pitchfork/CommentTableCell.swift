@@ -15,7 +15,7 @@ class CommentTableCell: UITableViewCell {
     var commentItem: PitchComment? {
         didSet {
             if let item = commentItem {
-                commentLabel.text = String(item.timestamp) + " : " + item.comment
+                commentLabel.text = StringUtils.timeFormatted(item.timestamp) + " " + item.comment
             }
             else {
                 commentLabel.text = nil
