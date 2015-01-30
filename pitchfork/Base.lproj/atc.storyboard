@@ -149,6 +149,9 @@
                                 <rect key="frame" x="140" y="281" width="320" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldDiDEndOnExit:" destination="iOB-ke-BGo" eventType="editingDidEndOnExit" id="ukf-0j-GYa"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -159,6 +162,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="commentTextField" destination="boY-g1-cT5" id="eVU-f9-hcK"/>
                         <outlet property="commentsTableView" destination="O67-7T-JR3" id="F0S-9c-94T"/>
                         <outlet property="titleLabel" destination="jdf-lj-TWL" id="x6H-cX-98M"/>
                         <outlet property="videoHoldingView" destination="Jgv-ES-wxP" id="E4a-BT-koM"/>
