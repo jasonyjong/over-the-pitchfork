@@ -8,6 +8,7 @@
 import UIKit
 
 class PitchItemCell: UITableViewCell {
+    
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
     

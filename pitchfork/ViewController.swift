@@ -8,20 +8,18 @@
 
 import UIKit
 
+private let kTableHeaderHeight: CGFloat = 400.0
+private let kTableHeaderCutAway: CGFloat = 60.0
+
 class ViewController: UITableViewController, UIScrollViewDelegate {
 
     var headerView: UIView!
     var headerMaskLayer: CAShapeLayer!
     
     let items = [
-        NewsItem(category: .World, summary: "Climate change protests, divestments meet fossil fuels realities"),
-        NewsItem(category: .Europe, summary: "Scotland's 'Yes' leader says independence vote is 'once in a lifetime'"),
-        NewsItem(category: .MiddleEast, summary: "Airstrikes boost Islamic State, FBI director warns more hostages possible"),
-        NewsItem(category: .Africa, summary: "Nigeria says 70 dead in building collapse; questions S. Africa victim claim"),
-        NewsItem(category: .AsiaPacific, summary: "Despite UN ruling, Japan seeks backing for whale hunting"),
-        NewsItem(category: .Americas, summary: "Officials: FBI is tracking 100 Americans who fought alongside IS in Syria"),
-        NewsItem(category: .World, summary: "South Africa in $40 billion deal for Russian nuclear reactors"),
-        NewsItem(category: .Europe, summary: "'One million babies' created by EU student exchanges"),
+        PitchItem(category: .Publication, summary: "Symbolia merges thrilling true stories with amazing illustration and comics."),
+        PitchItem(category: .DataViz, summary: "Interactive way to visualize poll results from elections"),
+        PitchItem(category: .DigitalPlatform, summary: "Plympton brings fiction to busy people, make reading in short installments a seamless part of daily life." )
     ]
     
     func updateHeaderView() {
@@ -51,7 +49,7 @@ class ViewController: UITableViewController, UIScrollViewDelegate {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        headerView = tableView.tableHeaderView
+        /*headerView = tableView.tableHeaderView
         tableView.tableHeaderView = nil
         tableView.addSubview(headerView)
         
@@ -63,20 +61,20 @@ class ViewController: UITableViewController, UIScrollViewDelegate {
         headerMaskLayer.fillColor = UIColor.blackColor().CGColor
         
         headerView.layer.mask = headerMaskLayer
-        updateHeaderView()
+        updateHeaderView()*/
         
         
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        updateHeaderView()
+       // updateHeaderView()
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         coordinator.animateAlongsideTransition({ (context) -> Void in
             [self]
-            self.updateHeaderView()
+           // self.updateHeaderView()
             self.tableView.reloadData()
             }, completion: { (context) -> Void in
         })
@@ -96,8 +94,8 @@ class ViewController: UITableViewController, UIScrollViewDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let item = items[indexPath.row]
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as NewsItemCell
-        cell.newsItem = item
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as PitchItemCell
+        cell.pitchItem = item
         
         return cell
     }
@@ -109,7 +107,7 @@ class ViewController: UITableViewController, UIScrollViewDelegate {
     // MARK: - UIScrollViewDelegate
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
-        updateHeaderView()
+        //updateHeaderView()
     }
 }
 
