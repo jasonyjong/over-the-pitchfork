@@ -126,9 +126,9 @@
                                 <rect key="frame" x="140" y="0.0" width="320" height="210"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdf-lj-TWL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdf-lj-TWL">
                                 <rect key="frame" x="16" y="218" width="514" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -168,6 +168,12 @@
                                     <action selector="textFieldDiDEndOnExit:" destination="iOB-ke-BGo" eventType="editingDidEndOnExit" id="ukf-0j-GYa"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zxs-Wt-bKI">
+                                <rect key="frame" x="16" y="245" width="400" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" red="0.9241043244949495" green="0.9241043244949495" blue="0.9241043244949495" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -179,6 +185,7 @@
                     <connections>
                         <outlet property="commentTextField" destination="boY-g1-cT5" id="eVU-f9-hcK"/>
                         <outlet property="commentsTableView" destination="O67-7T-JR3" id="F0S-9c-94T"/>
+                        <outlet property="descLabel" destination="Zxs-Wt-bKI" id="tGz-oG-pBO"/>
                         <outlet property="titleLabel" destination="jdf-lj-TWL" id="x6H-cX-98M"/>
                         <outlet property="videoHoldingView" destination="Jgv-ES-wxP" id="E4a-BT-koM"/>
                     </connections>
@@ -186,6 +193,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PqV-YQ-WR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-459" y="1022"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="8J2-UY-4dU">
+            <objects>
+                <viewController id="ufP-FM-BXV" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="riJ-0U-CUl"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mk6-Bj-2dm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="83b-rs-59W">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oak-MV-IOO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
 </document>

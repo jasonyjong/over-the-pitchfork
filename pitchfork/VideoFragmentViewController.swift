@@ -12,7 +12,8 @@ import MediaPlayer
 
 class VideoFragmentViewController : FragmentViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     @IBOutlet weak var titleLabel: UILabel!
-
+    @IBOutlet weak var descLabel: UILabel!
+    
     var moviePlayer : MPMoviePlayerController?
     @IBOutlet weak var videoHoldingView: UIView!
     
@@ -78,6 +79,7 @@ class VideoFragmentViewController : FragmentViewController, UITableViewDelegate,
         self.commentTextField.text = "Comment at 00:00"
         self.commentTextField.textColor = UIColor.lightGrayColor()
         titleLabel.text = pitchVideo!.title
+        descLabel.text = pitchVideo!.description
         
         //playVideo()
     }
