@@ -22,6 +22,8 @@ class VideoFragmentViewController : FragmentViewController, UITableViewDelegate,
     // Datatypes
     var pitchVideo : PitchVideo?
     
+    var timer:NSTimer?
+    
     @IBOutlet weak var commentTextField: UITextField!
     
     func textFieldDidBeginEditing(textField:UITextField) {
@@ -89,31 +91,46 @@ class VideoFragmentViewController : FragmentViewController, UITableViewDelegate,
         titleLabel.text = pitchVideo!.title
         descLabel.text = pitchVideo!.description
         
-        //playVideo()
+        playVideo()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        playVideo()
         
-        var updateVideoTime = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("updateVideoTime"), userInfo: nil, repeats: true)
+        moviePlayer!.play()
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("updateVideoTime"), userInfo: nil, repeats: true)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        moviePlayer!.pause()
+    }
+    
+    func stopTimer() {
+        timer?.invalidate()
     }
     
     func updateVideoTime() {
-        var interval:NSTimeInterval = moviePlayer!.currentPlaybackTime;
-        
-        let playbackTime = interval.description
-        let timestamp:Int = Int((playbackTime as NSString).floatValue)
-        if (commentTextField.text.rangeOfString("Comment at ") != nil) {
-            commentTextField.text = "Comment at " + StringUtils.timeFormatted(timestamp)
-            commentTextField.textColor = UIColor.lightGrayColor() //optional
+        if let mp = moviePlayer {
+            var interval:NSTimeInterval = mp.currentPlaybackTime;
+            let playbackTime = interval.description
+            let timestamp:Int = Int((playbackTime as NSString).floatValue)
+            if (commentTextField.text.rangeOfString("Comment at ") != nil) {
+                commentTextField.text = "Comment at " + StringUtils.timeFormatted(timestamp)
+                commentTextField.textColor = UIColor.lightGrayColor() //optional
+            }
+            
+            // scroll to relevant position for tableView
+            if pitchVideo!.comments.count != 0 {
+                let index:Int = getMostRelevantComment(timestamp)
+                let indexPath = NSIndexPath(forRow:index, inSection: 0)
+            
+                if let ctv = commentsTableView {
+                    ctv.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: true)
+                    ctv.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: .Top)
+                }
+            }
         }
-        
-        // scroll to relevant position for tableView
-        let index:Int = getMostRelevantComment(timestamp)
-        let indexPath = NSIndexPath(forRow:index, inSection: 0)
-        commentsTableView!.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: true)
-        commentsTableView!.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: .Top)
     }
     
     func getMostRelevantComment(currentTimestamp:Int) -> Int {
@@ -125,7 +142,7 @@ class VideoFragmentViewController : FragmentViewController, UITableViewDelegate,
             i++
         }
         
-        return pitchVideo!.comments.count - 1
+        return max(0, pitchVideo!.comments.count - 1)
     }
 
     override func didReceiveMemoryWarning() {

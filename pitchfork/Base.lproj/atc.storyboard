@@ -188,7 +188,7 @@
                     </view>
                     <connections>
                         <outlet property="commentTextField" destination="boY-g1-cT5" id="eVU-f9-hcK"/>
-                        <outlet property="commentsTableView" destination="O67-7T-JR3" id="F0S-9c-94T"/>
+                        <outlet property="commentsTableView" destination="O67-7T-JR3" id="RAM-yj-YTR"/>
                         <outlet property="descLabel" destination="Zxs-Wt-bKI" id="tGz-oG-pBO"/>
                         <outlet property="titleLabel" destination="jdf-lj-TWL" id="x6H-cX-98M"/>
                         <outlet property="videoHoldingView" destination="Jgv-ES-wxP" id="E4a-BT-koM"/>
