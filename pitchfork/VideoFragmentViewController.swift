@@ -9,7 +9,7 @@
 import UIKit
 import MediaPlayer
 
-class VideoFragmentViewController : FragmentViewController, UITableViewDelegate, UITableViewDataSource {
+class VideoFragmentViewController : FragmentViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     @IBOutlet weak var titleLabel: UILabel!
 
     var moviePlayer : MPMoviePlayerController?
@@ -19,6 +19,32 @@ class VideoFragmentViewController : FragmentViewController, UITableViewDelegate,
     
     // Datatypes
     var pitchVideo : PitchVideo?
+    
+    @IBOutlet weak var commentTextField: UITextField!
+    
+    func textFieldDidBeginEditing(textField:UITextField) {
+        println("JAJA")
+        if (textField.text.rangeOfString("Comment at ") != nil) {
+            textField.text = ""
+            textField.textColor = UIColor.blackColor() //optional
+        }
+        textField.becomeFirstResponder()
+    }
+    
+    @IBAction func textFieldDiDEndOnExit(sender: AnyObject) {
+        println("Done")
+        var textField:UITextField = sender as UITextField
+        if (countElements(textField.text) != 0) {
+            // submit code
+            pitchVideo?.addComment(textField.text)
+            commentsTableView.reloadData()
+        }
+        
+        textField.text = "Comment at "
+        textField.textColor = UIColor.lightGrayColor()
+        textField.resignFirstResponder()
+        
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let video = self.pitchVideo {
@@ -44,6 +70,9 @@ class VideoFragmentViewController : FragmentViewController, UITableViewDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.commentTextField.delegate = self
+        self.commentTextField.text = "Comment at "
+        self.commentTextField.textColor = UIColor.lightGrayColor()
         titleLabel.text = pitchVideo!.title
         
         playVideo()
