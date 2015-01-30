@@ -28,6 +28,8 @@ class VideoFragmentViewController : FragmentViewController, UITableViewDelegate,
             textField.text = ""
             textField.textColor = UIColor.blackColor() //optional
         }
+        
+        moviePlayer!.pause()
         textField.becomeFirstResponder()
     }
     
@@ -46,6 +48,8 @@ class VideoFragmentViewController : FragmentViewController, UITableViewDelegate,
         textField.text = "Comment at " + timeFormatted(Int((playbackTime as NSString).floatValue))
         
         textField.textColor = UIColor.lightGrayColor()
+        
+        moviePlayer!.play()
         textField.resignFirstResponder()
         
     }
