@@ -157,8 +157,8 @@ class ViewController: UITableViewController, UIScrollViewDelegate {
         
         for (var i = 0; i < 3; i++) {
             var pitchVideo:PitchVideo = PitchVideo(title: "Video " + String(i), category: "Category", url:"http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v")
-            pitchVideo.addComment("This is a comment")
-            pitchVideo.addComment("This is another comment")
+            pitchVideo.addComment(PitchComment(comment:"This is a comment", timestamp:2))
+            pitchVideo.addComment(PitchComment(comment:"This is another comment", timestamp:100))
             pitchGroup.addPitchVideo(pitchVideo)
         }
         

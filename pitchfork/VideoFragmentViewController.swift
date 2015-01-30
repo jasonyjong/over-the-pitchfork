@@ -33,14 +33,16 @@ class VideoFragmentViewController : FragmentViewController, UITableViewDelegate,
     
     @IBAction func textFieldDiDEndOnExit(sender: AnyObject) {
         var textField:UITextField = sender as UITextField
-        if (countElements(textField.text) != 0) {
-            // submit code
-            pitchVideo?.addComment(textField.text)
-            commentsTableView.reloadData()
-        }
         
         var interval:NSTimeInterval = moviePlayer!.currentPlaybackTime;
         let playbackTime = interval.description
+        
+        if (countElements(textField.text) != 0) {
+            // submit code
+            pitchVideo?.addComment(PitchComment(comment:textField.text, timestamp:Int((playbackTime as NSString).floatValue)))
+            pitchVideo?.sortComments()
+            commentsTableView.reloadData()
+        }
         textField.text = "Comment at " + timeFormatted(Int((playbackTime as NSString).floatValue))
         
         textField.textColor = UIColor.lightGrayColor()

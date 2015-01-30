@@ -12,10 +12,10 @@ class CommentTableCell: UITableViewCell {
     
     @IBOutlet weak var commentLabel: UILabel!
     
-    var commentItem: String? {
+    var commentItem: PitchComment? {
         didSet {
             if let item = commentItem {
-                commentLabel.text = item
+                commentLabel.text = String(item.timestamp) + " : " + item.comment
             }
             else {
                 commentLabel.text = nil
