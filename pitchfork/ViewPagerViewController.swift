@@ -15,6 +15,9 @@ class ViewPagerViewController : UIViewController, UIPageViewControllerDataSource
     
     var numPages:Int = 3;
     
+    // TODO(jyjong): Change type
+    var dataFromMenu : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,8 +27,11 @@ class ViewPagerViewController : UIViewController, UIPageViewControllerDataSource
         pageViewController!.dataSource = self
         
         for (var i = 0; i < numPages; i++) {
-            var fragmentVC = storyboard.instantiateViewControllerWithIdentifier("VideoFragmentViewController") as FragmentViewController?
+            var fragmentVC = storyboard.instantiateViewControllerWithIdentifier("VideoFragmentViewController") as VideoFragmentViewController?
             fragmentVC!.setIndex(i);
+            
+            // TODO(jyjong): Pass in relevant part of data
+            fragmentVC!.dataFromVP = dataFromMenu
             pages.append(fragmentVC!);
         }
         var startingViewController = pages[0]
