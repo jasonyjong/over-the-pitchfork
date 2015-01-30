@@ -171,45 +171,77 @@ class ViewController: UITableViewController, UIScrollViewDelegate {
     func getDummyPitchGroup() -> PitchGroup {
         var pitchGroup:PitchGroup = PitchGroup(category:"Category", description:"This stuff is legit")
         
-        var pitchVideo1:PitchVideo = PitchVideo(title: "Symbolia", category: "Publishing", url:"http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v", desc:"True stories with amazing illustrations")
+       /* var pitchVideo1:PitchVideo = PitchVideo(title: "Symbolia", category: "Publishing", url:"http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v", desc:"True stories with amazing illustrations")*/
+        
+        var pitchVideo1:PitchVideo = PitchVideo(title: "Playfull", category: "Education", url:"http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v", desc:"Foster creativity through games!")
+        
         var pitchItem1 = PitchItem(category: .Publishing, summary: "Symbolia merges thrilling true stories with amazing illustration and comics.")
-        pitchGroup.addPitchVideo(pitchVideo1);
-        pitchGroup.addPitchItem(pitchItem1);
+        var pitch1comment1 = PitchComment(comment: "You should spend more time emphasizing your pitch idea before talking about your qualifications", timestamp:3)
+        var pitch1comment2 = PitchComment(comment: "Try not to say 'um' so often", timestamp:6)
+        var pitch1comment3 = PitchComment(comment: "It's important to include numbers during market analysis", timestamp:10)
+        var pitch1comment4 = PitchComment(comment: "It's important to include numbers during market analysis", timestamp:14)
+
+        pitchVideo1.addComment(pitch1comment1)
+        pitchVideo1.addComment(pitch1comment2)
+        pitchVideo1.addComment(pitch1comment3)
+        pitchVideo1.addComment(pitch1comment4)
+        
+        pitchGroup.addPitchVideo(pitchVideo1)
+        pitchGroup.addPitchItem(pitchItem1)
 
         var pitchVideo2:PitchVideo = PitchVideo(title: "Visualizing Impact", category: "DataViz", url:"http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v", desc:"Visual coverage of social issues")
         var pitchItem2 = PitchItem(category: .DataViz, summary: "Visualizing Impact captures data through visualization coverage of social issues")
-        pitchGroup.addPitchVideo(pitchVideo2);
-        pitchGroup.addPitchItem(pitchItem2);
-        
-        var pitchVideo3:PitchVideo = PitchVideo(title: "Foreign Policy Interrupted", category: "Networking", url:"http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v", desc:"Encourage women in media on foreign policy issues")
-        var pitchItem3 = PitchItem(category: .Networking, summary: "Foreign Policy Interrupted increases the number of women in media commenting on foreign policy issues")
-        pitchGroup.addPitchVideo(pitchVideo3);
-        pitchGroup.addPitchItem(pitchItem3);
+        pitchGroup.addPitchVideo(pitchVideo2)
+        pitchGroup.addPitchItem(pitchItem2)
+    
         
         var pitchVideo4:PitchVideo = PitchVideo(title: "Plympton", category: "DigitalPlatform", url:"http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v", desc:"Fiction in small bites")
         var pitchItem4 = PitchItem(category: .DigitalPlatform, summary: "Plympton brings fiction to busy people, make reading in short installments a seamless part of daily life.")
-        pitchGroup.addPitchVideo(pitchVideo4);
-        pitchGroup.addPitchItem(pitchItem4);
+        pitchGroup.addPitchVideo(pitchVideo4)
+        pitchGroup.addPitchItem(pitchItem4)
         
-        var pitchVideo5:PitchVideo = PitchVideo(title: "Her Zimbabwe", category: "Social", url:"http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v", desc:"Promoting dialogue among Zimbabwean women")
+        var pitchVideo5:PitchVideo = PitchVideo(title: "Her Zimbabwe", category: "Social", url:"http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v", desc:"Promote dialogue among Zimbabwean women")
         var pitchItem5 = PitchItem(category: .Social, summary: "Her Zimbabwe showcases new and social media to promote dialogue among Zimbabwean women.")
-        pitchGroup.addPitchVideo(pitchVideo5);
-        pitchGroup.addPitchItem(pitchItem5);
+        pitchGroup.addPitchVideo(pitchVideo5)
+        pitchGroup.addPitchItem(pitchItem5)
         
         var pitchVideo6:PitchVideo = PitchVideo(title: "BlogHer", category: "Publishing", url:"http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v", desc:"A new political blogging network for women")
         var pitchItem6 = PitchItem(category: .Publishing, summary: "BlogHer features a political blogging network by and for women")
-        pitchGroup.addPitchVideo(pitchVideo6);
-        pitchGroup.addPitchItem(pitchItem6);
+        pitchGroup.addPitchVideo(pitchVideo6)
+        pitchGroup.addPitchItem(pitchItem6)
+        
+        var pitchVideo3:PitchVideo = PitchVideo(title: "Foreign Policy Interrupted", category: "Networking", url:"http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v", desc:"Encourage women in media on foreign policy issues")
+        var pitchItem3 = PitchItem(category: .Networking, summary: "Foreign Policy Interrupted increases the number of women in media commenting on foreign policy issues")
+        pitchGroup.addPitchVideo(pitchVideo3)
+        pitchGroup.addPitchItem(pitchItem3)
+        
         
         var myPitchVideo1:PitchVideo = PitchVideo(title: "Playfull", category: "Education", url:"http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v", desc:"Creativity through games and training")
-        var myPitchItem1 = PitchItem(category: .Education, summary: "Playfull fosters creativity through collaborative games, educational training, surprise and play")
-        pitchGroup.addPitchVideo(myPitchVideo1);
-        pitchGroup.addMyPitchItem(myPitchItem1);
+        var myPitchItem1 = PitchItem(category: .Education, summary: "Playfull fosters creativity through collaborative games, training, surprise and play")
+        pitchGroup.addPitchVideo(myPitchVideo1)
+        pitchGroup.addMyPitchItem(myPitchItem1)
+
         
+        var mpitch1comment1 = PitchComment(comment:"fdsfdsfs", timestamp:5)
+        var mpitch1comment2 = PitchComment(comment:"", timestamp:12)
+        var mpitch1comment3 = PitchComment(comment:"", timestamp:15)
+        var mpitch1comment4 = PitchComment(comment:"", timestamp:19)
+        var mpitch1comment5 = PitchComment(comment:"", timestamp:26)
+
+        myPitchVideo1.addComment(mpitch1comment1)
+        myPitchVideo1.addComment(mpitch1comment2)
+        myPitchVideo1.addComment(mpitch1comment3)
+        myPitchVideo1.addComment(mpitch1comment4)
+        myPitchVideo1.addComment(mpitch1comment5)
+
         var myPitchVideo2:PitchVideo = PitchVideo(title: "PitchCoach", category: "Networking", url:"http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v", desc:"Learn to pitch your visions")
         var myPitchItem2 = PitchItem(category: .Networking, summary: "PitchCoach helps female journalists with ideas become entrepeneurs with visions.")
-        pitchGroup.addPitchVideo(myPitchVideo2);
-        pitchGroup.addPitchItem(myPitchItem2);
+        
+        pitchGroup.addPitchVideo(myPitchVideo2)
+        pitchGroup.addMyPitchItem(myPitchItem2)
+        
+        
+
         
         
         /*
