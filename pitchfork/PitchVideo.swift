@@ -11,6 +11,7 @@ import Foundation
 struct PitchVideo {
     var title: String
     var category: String
+    var description: String
     let url: String
     var comments:[String]
     
@@ -18,8 +19,9 @@ struct PitchVideo {
     var upvotes:Int?
     var downvotes:Int?
     
-    init(title:String, category:String, url:String) {
+    init(title:String, category:String, url:String, desc:String) {
         self.title = title
+        self.description = desc
         self.category = category
         self.url = url
         self.comments = []
