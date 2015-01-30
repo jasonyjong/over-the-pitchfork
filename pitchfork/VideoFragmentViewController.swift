@@ -46,6 +46,11 @@ class VideoFragmentViewController : FragmentViewController, UITableViewDelegate,
         super.viewDidLoad()
         titleLabel.text = pitchVideo!.title
         
+        //playVideo()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         playVideo()
     }
 

@@ -17,6 +17,7 @@ class ViewController: UITableViewController, UIScrollViewDelegate {
 
     var headerView: UIView!
     var browse = true
+    var pitchGroup: PitchGroup?
 
     var headerMaskLayer: CAShapeLayer!
 
@@ -78,6 +79,7 @@ class ViewController: UITableViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        pitchGroup = getDummyPitchGroup()
         tableView.rowHeight = UITableViewAutomaticDimension
         
         // allow clickable
@@ -122,6 +124,12 @@ class ViewController: UITableViewController, UIScrollViewDelegate {
     // MARK: - UITableViewDataSource
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       /* if browse {
+            return pitchGroup.getItemsCount()
+        } else {
+            return pitchGroup.getMyItemsCount()
+        }*/
+        
         if browse {
             return items.count
         } else {
@@ -132,11 +140,18 @@ class ViewController: UITableViewController, UIScrollViewDelegate {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var item: PitchItem
+       /* if browse {
+            item = pitchGroup.getItemAtIndex(indexPath.row)
+        } else {
+            item = pitchGroup.getMyItemAtIndex(indexPath.row)
+        }*/
+        
         if browse {
             item = items[indexPath.row]
         } else {
             item = my_items[indexPath.row]
         }
+  
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as PitchItemCell
         cell.pitchItem = item
         
@@ -146,7 +161,7 @@ class ViewController: UITableViewController, UIScrollViewDelegate {
     // function called upon button click event
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath:NSIndexPath) -> NSIndexPath? {
         let viewPagerVC = ViewPagerViewController()
-        viewPagerVC.pitchGroup = getDummyPitchGroup()
+        viewPagerVC.pitchGroup = pitchGroup
         self.presentViewController(viewPagerVC, animated: true, completion: nil)
         return nil
     }
@@ -154,6 +169,9 @@ class ViewController: UITableViewController, UIScrollViewDelegate {
     // TODO(jyjong): Enter dummy data here
     func getDummyPitchGroup() -> PitchGroup {
         var pitchGroup:PitchGroup = PitchGroup(category:"Category", description:"This stuff is legit")
+       /* var pitchVideo1:PitchVideo = PitchVideo(title: "Video " + String(i), category: "Category", url:"http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v")
+        var pitchItem1 = PitchItem(category: .Publication, summary: "Symbolia merges thrilling true stories with amazing illustration and comics.")
+        pitchVideo1.addComment("Wow hello okay");*/
         
         for (var i = 0; i < 3; i++) {
             var pitchVideo:PitchVideo = PitchVideo(title: "Video " + String(i), category: "Category", url:"http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v")
@@ -164,6 +182,8 @@ class ViewController: UITableViewController, UIScrollViewDelegate {
         
         return pitchGroup
     }
+    
+
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
