@@ -12,9 +12,12 @@ import AVFoundation
 class VideoFragmentViewController : FragmentViewController {
     @IBOutlet weak var titleLabel: UILabel!
     
+    // TODO(jyjong): Change type
+    var dataFromVP : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.text = "Page " + String(index())
+        titleLabel.text = "Page " + String(index()) + " " + dataFromVP!
     }
 
     override func didReceiveMemoryWarning() {

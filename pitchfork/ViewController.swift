@@ -49,6 +49,9 @@ class ViewController: UITableViewController, UIScrollViewDelegate {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         
+        // allow clickable
+        tableView.allowsSelection = true
+        
         /*headerView = tableView.tableHeaderView
         tableView.tableHeaderView = nil
         tableView.addSubview(headerView)
@@ -92,12 +95,19 @@ class ViewController: UITableViewController, UIScrollViewDelegate {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         let item = items[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as PitchItemCell
         cell.pitchItem = item
         
         return cell
+    }
+    
+    // function called upon button click event
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath:NSIndexPath) -> NSIndexPath? {
+        let viewPagerVC = ViewPagerViewController()
+        viewPagerVC.dataFromMenu = "asdf"
+        self.presentViewController(viewPagerVC, animated: true, completion: nil)
+        return nil
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
