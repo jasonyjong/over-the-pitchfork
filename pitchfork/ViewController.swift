@@ -173,7 +173,7 @@ class ViewController: UITableViewController, UIScrollViewDelegate {
         
        /* var pitchVideo1:PitchVideo = PitchVideo(title: "Symbolia", category: "Publishing", url:"http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v", desc:"True stories with amazing illustrations")*/
         
-        var pitchVideo1:PitchVideo = PitchVideo(title: "Playfull", category: "Education", url:"http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v", desc:"Foster creativity through games!")
+        var pitchVideo1:PitchVideo = PitchVideo(title: "Playfull", category: "Education", url:"http://cindyroyal.com/pitchcoach.m4v", desc:"Foster creativity through games!")
         
         var pitchItem1 = PitchItem(category: .Publishing, summary: "Symbolia merges thrilling true stories with amazing illustration and comics.")
         var pitch1comment1 = PitchComment(comment: "You should spend more time emphasizing your pitch idea before talking about your qualifications", timestamp:3)
@@ -189,18 +189,18 @@ class ViewController: UITableViewController, UIScrollViewDelegate {
         pitchGroup.addPitchVideo(pitchVideo1)
         pitchGroup.addPitchItem(pitchItem1)
 
-        var pitchVideo2:PitchVideo = PitchVideo(title: "Visualizing Impact", category: "DataViz", url:"http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v", desc:"Visual coverage of social issues")
+        var pitchVideo2:PitchVideo = PitchVideo(title: "Visualizing Impact", category: "DataViz", url:"http://cindyroyal.com/pitchcoach.m4v", desc:"Visual coverage of social issues")
         var pitchItem2 = PitchItem(category: .DataViz, summary: "Visualizing Impact captures data through visualization coverage of social issues")
         pitchGroup.addPitchVideo(pitchVideo2)
         pitchGroup.addPitchItem(pitchItem2)
     
         
-        var pitchVideo4:PitchVideo = PitchVideo(title: "Plympton", category: "DigitalPlatform", url:"http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v", desc:"Fiction in small bites")
+        var pitchVideo4:PitchVideo = PitchVideo(title: "Plympton", category: "DigitalPlatform", url:"http://cindyroyal.com/pitchcoach.m4v", desc:"Fiction in small bites")
         var pitchItem4 = PitchItem(category: .DigitalPlatform, summary: "Plympton brings fiction to busy people, make reading in short installments a seamless part of daily life.")
         pitchGroup.addPitchVideo(pitchVideo4)
         pitchGroup.addPitchItem(pitchItem4)
         
-        var pitchVideo5:PitchVideo = PitchVideo(title: "Her Zimbabwe", category: "Social", url:"http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v", desc:"Promote dialogue among Zimbabwean women")
+        var pitchVideo5:PitchVideo = PitchVideo(title: "Her Zimbabwe", category: "Social", url:"http://cindyroyal.com/pitchcoach.m4v", desc:"Promote dialogue among Zimbabwean women")
         var pitchItem5 = PitchItem(category: .Social, summary: "Her Zimbabwe showcases new and social media to promote dialogue among Zimbabwean women.")
         pitchGroup.addPitchVideo(pitchVideo5)
         pitchGroup.addPitchItem(pitchItem5)

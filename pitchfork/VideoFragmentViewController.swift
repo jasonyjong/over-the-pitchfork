@@ -153,8 +153,9 @@ class VideoFragmentViewController : FragmentViewController, UITableViewDelegate,
     func playVideo() {
         if let video = pitchVideo {
             var url:NSURL? = NSURL(string: video.url)
-            moviePlayer = MPMoviePlayerController(contentURL: url)
+            moviePlayer = MPMoviePlayerController(contentURL: url!)
             if let player = moviePlayer {
+                player.movieSourceType = .File
                 player.view.frame = videoHoldingView.bounds
                 player.prepareToPlay()
                 player.scalingMode = .AspectFit
